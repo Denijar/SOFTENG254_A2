@@ -170,7 +170,7 @@ public class BranchTests {
 	}
 	
 	/**
-	 * test 10
+	 * Test 10
 	 * Tests leap year where the day is before Dooms Day
 	 * New evaluations: TF line 96, F line 103
 	 */

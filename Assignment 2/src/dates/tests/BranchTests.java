@@ -30,6 +30,7 @@ public class BranchTests {
     //  			Tests that exercise leap-year and validity checks
     //===============================================================================
 	/**
+	 * Test 1
 	 * Tests a year that is divisible by 400 and is too small to be valid.
 	 * New evaluations: T line 48, T line 59.
 	 */
@@ -45,6 +46,7 @@ public class BranchTests {
 	}
 	
 	/**
+	 * Test 2
 	 * Tests a year that is only divisible by 100 and both month/day are negative
 	 * New evaluations: F line 48, T line 50, F line 59, TT line 61
 	 */
@@ -60,6 +62,7 @@ public class BranchTests {
 	}
 	
 	/**
+	 * Test 3
 	 * Tests a year that is only divisible by 4 and only month is negative
 	 * New evaluations: F line 50, T line 52, TF line 61
 	 */
@@ -75,6 +78,7 @@ public class BranchTests {
 	}
 	
 	/**
+	 * Test 4
 	 * Tests a non-leap year and only day is negative
 	 * New evaluations: F line 52, reaches 54, FT line 61
 	 */
@@ -90,6 +94,7 @@ public class BranchTests {
 	}
 	
 	/**
+	 * Test 5
 	 * Tests month and day are positive, month is larger than 12
 	 * New evaluations: FF line 61, T line 63
 	 */
@@ -105,6 +110,7 @@ public class BranchTests {
 	}
 	
 	/**
+	 * Test 6
 	 * Tests leap year, month is February and day is too large to be valid
 	 * New evaluations: F line 63, TT line 65, T line 66
 	 */
@@ -120,11 +126,12 @@ public class BranchTests {
 	}
 	
 	/**
+	 * Test 7
 	 * Tests leap year, month is not February and day is invalid
 	 * New evaluations: TF line 65, T line 70
 	 */
 	@Test
-	public void testLeapYearNotFebruaryInvalidDay() {
+	public void testLeapYearNotFebruaryLargeDayInvalid() {
 		try {
 			dayOfWeek(2020, 3, 40);
 			fail("IllegalArgumentException should have been thrown");
@@ -134,7 +141,12 @@ public class BranchTests {
 		}
 	}
 	
+	//===============================================================================
+    //  			     Tests that exercise method functionality
+    //===============================================================================
+	
 	/**
+	 * Test 8
 	 * Tests leap year, month is February and day is valid
 	 * New evaluations: F line 66, TT line 96, T line 103
 	 */
@@ -146,6 +158,7 @@ public class BranchTests {
 	
 	
 	/**
+	 * Test 9
 	 * Tests not leap year, month is not February and day is valid
 	 * New evaluations: FF line 65, F line 70, FF line 96
 	 */
@@ -156,27 +169,15 @@ public class BranchTests {
 		assertEquals(day, Day.Saturday);
 	}
 	
-	//===============================================================================
-    //  							Last test needed
-    //===============================================================================
 	/**
+	 * test 10
 	 * Tests leap year where the day is before Dooms Day
 	 * New evaluations: TF line 96, F line 103
 	 */
 	@Test
-	public void testLeapYearDateBeforeDoomsDay() {
+	public void testLeapYearDayBeforeDoomsdayDate() {
 		Day day = dayOfWeek(2020, 10, 2);
 		assertEquals(day, Day.Friday);
 	}
-	
-	
-	
-	
-	
-	
-	
-
-
-	
 
 }

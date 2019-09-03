@@ -6,6 +6,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import dates.Dates.Day;
+
 public class BranchTests {
 	
 	//===============================================================================
@@ -104,13 +106,8 @@ public class BranchTests {
 	 */
 	@Test
 	public void testLeapYearFebruary() {
-		try {
-			dayOfWeek(2020, 2, 28);
-			fail("IllegalArgumentException should have been thrown");
-		}
-		catch(IllegalArgumentException e) {
-			assertEquals(e.getMessage(), "Invalid date: year=2020, month=2, day=30");
-		}
+		Day day = dayOfWeek(2020, 2, 28);
+		assertEquals(day, Day.Friday);
 	}
 	/**
 	 * Tests leap year, month is not February and day is invalid
@@ -123,7 +120,7 @@ public class BranchTests {
 			fail("IllegalArgumentException should have been thrown");
 		}
 		catch(IllegalArgumentException e) {
-			assertEquals(e.getMessage(), "Invalid date: year=2020, month=2, day=30");
+			assertEquals(e.getMessage(), "Invalid date: year=2020, month=3, day=40");
 		}
 	}
 	/**
@@ -132,13 +129,8 @@ public class BranchTests {
 	 */
 	@Test
 	public void testNonLeapYearNotFebruary() {
-		try {
-			dayOfWeek(2019, 3, 30);
-			fail("IllegalArgumentException should have been thrown");
-		}
-		catch(IllegalArgumentException e) {
-			assertEquals(e.getMessage(), "Invalid date: year=2020, month=2, day=40");
-		}
+		Day day = dayOfWeek(2019, 3, 30);
+		assertEquals(day, Day.Saturday);
 	}
 	
 	

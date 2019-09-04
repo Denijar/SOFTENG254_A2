@@ -33,25 +33,25 @@ import dates.Dates.Day;
  * 
  * There is only one test from dates.tests.BranchTests that reaches line 49: Test 1, a.k.a. yearDiv400_yearSmallInvalid().
  * This is because this is the only test from that class where the year input is divisible by 400.
- * The path followed by this test DOES NOT reach line 65 because the if statement on line 59 is evaluated to true, so the
- * if/else block is exited before line 65.
+ * The path followed by this test DOES NOT reach line 65 because the if statement on line 59 is evaluated to true (because
+ * the year is less than 1753), so the if/else block is exited before line 65.
  * 
  * The test from class dates.tests.EquivalenceTest also doesn't reach line 49 because the year is not divisible by 400.
  * 
  * This means that the du-path followed from line 49 to 65 by the test isLeapYearVariableDUPath() is definitely unique.
  * 
- * JUSTIFICATION WHY IT IMPROVES TEST SUITE QUALITY
+ * JUSTIFICATION WHY THIS IMPROVES TEST SUITE QUALITY
  * 
- * This test improves test suite quality because, before introducing this test, there is not test that follows the path from
+ * This test improves test suite quality because, before introducing this test, there is no test that follows the path from
  * isLeapYear being defined on line 49 to it being used on line 65. It is possible for a fault to lie on line 49, so we want
- * to test how it is subsequently used on line 65 to encourage a failure to propogate to the output.
+ * to test how it is subsequently used on line 65 to increase the chance of a failure propagating to the output.
  */
 public class DataflowTest {
 	
 	/**
 	 * Year is divisible by 400.
 	 * Day and month values are valid.
-	 * Introduces a DU-Path wrt. variable isLeapYear between lines 49 and 96 that is not followed by any test
+	 * Introduces a DU-Path wrt. variable isLeapYear between lines 49 and 65 that is not followed by any other test
 	 */
 	@Test
 	public void isLeapYearVariableDUPath() {

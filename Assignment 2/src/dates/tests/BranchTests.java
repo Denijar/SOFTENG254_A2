@@ -22,6 +22,8 @@ import dates.Dates.Day;
  * By showing that TRUE and FALSE for each predicate is covered, I have shown that each branch coming out of a predicate is followed.
  * This is also supported by (almost, see predicate 11) full green coverage in EMMA.
  * 
+ * I have referred to the tests as Test 1, Test 2 etc. for ease of presentation.
+ * 
  * (1) Line 48) year % 400 == 0
  *		T: Test 1 (year is 400)
  *		F: Test 2 (year is 2100)

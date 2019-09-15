@@ -60,7 +60,7 @@ public class EquivalenceTest {
 	 * Includes an input value belonging to an equivalence class that has not yet been tested
 	 */
 	@Test
-	public void leapYear_february() {
+	public void leapYear_february29() {
 		Day day = dayOfWeek(2020, 2, 29);
 		assertEquals(day, Day.Saturday);
 	}

@@ -1,4 +1,4 @@
-package dates.tests;
+package dates.test;
 
 import static dates.Dates.dayOfWeek;
 import static org.junit.Assert.assertEquals;

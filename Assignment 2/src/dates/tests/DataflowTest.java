@@ -10,8 +10,9 @@ import dates.Dates.Day;
 /**
  * SOFTENG254 Assignment 2 Part 2
  * @author Denise Jarry
+ * ID: 199937702
  * 
- * NEW DU-PATH JUSTIFICATION
+ * NEW DU-PATH EXPLANATION
  * 
  * DU-PATH FROM NEW TEST
  * 
@@ -21,13 +22,13 @@ import dates.Dates.Day;
  * 
  * NEW DU-PATH: 49, 58, 59, 61, 63, 65
  * 
- * Explanation why the test follows this path (why is each line of the path reached):
+ * Explanation why the test (dates.tests.DataflowTest#isLeapYearVariableDUPath) follows this path (i.e. why each line of the path is reached):
  * 		49) isLeapYear is DEFINED. 2400 is divisible by 400, so the if statement on line 48 is evaluated to true
  * 		58) the if/else block is exited after line 49, so this line is reached
  * 		59) follows from 58
  * 		61) the if statement on line 59 is evaluated to false (year is greater than 1753)
  * 		63) the if statement on line 61 is evaluated to false (both month and day are greater than 0)
- * 		65) the if statement on line 63 is evaluated to false (month is less than 12). isLeapYear IS USED
+ * 		65) the if statement on line 63 is evaluated to false (month is less than 12). isLeapYear is USED
  * 
  * JUSTIFICATION WHY THIS IS UNIQUE
  * 
@@ -43,8 +44,8 @@ import dates.Dates.Day;
  * JUSTIFICATION WHY THIS IMPROVES TEST SUITE QUALITY
  * 
  * This test improves test suite quality because, before introducing this test, there is no test that follows the path from
- * isLeapYear being defined on line 49 to it being used on line 65. It is possible for a fault to lie on line 49, so we want
- * to test how it is subsequently used on line 65 to increase the chance of a failure propagating to the output.
+ * isLeapYear being defined on line 49 to it being used on line 65. It is possible for a fault to lie on line 49 or line 65, so we want
+ * to test this particular combination of definition followed by use to increase the chance of a failure propagating to the output.
  */
 public class DataflowTest {
 	

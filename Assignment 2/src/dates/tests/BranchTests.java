@@ -2,25 +2,25 @@ package dates.tests;
 
 import static dates.Dates.dayOfWeek;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import dates.Dates;
 import dates.Dates.Day;
 
 /**
  * SOFTENG254 Assignment 2 Part 1
- * @author Denise Jarry
+ * @author Denise Jarry 
+ * ID: 199937702
  * 
- * BRANCH COVERAGE JUSTIFICATION
+ * BRANCH COVERAGE EXPLANATION
  * 
- * NOTE: There is 1 branch that is not covered: the branch that goes from line 92 directly to 102 is never followed. This is due to predicate number (11). See below for justification.
+ * NOTE: There is 1 branch that is not covered: the branch that goes from line 92 directly to 102 is never followed. This means line 92 is still highlighted yellow with EMMA.
+ * This is due to predicate number 11. See below for justification.
  * 
  * There are 15 predicate statements. The following list shows which Test exercises the TRUE and FALSE evaluation of each.
  * By showing that TRUE and FALSE for each predicate is covered, I have shown that each branch coming out of a predicate is followed.
- * This is also supported by (almost, see predicate 11) full green coverage in EMMA.
+ * This justification is supported by (almost, see predicate 11) full green coverage in EMMA.
  * 
  * I have referred to the tests as Test 1, Test 2 etc. for ease of presentation.
  * 
@@ -86,7 +86,7 @@ import dates.Dates.Day;
  * 		T: Test 10 (position is calculated as -2 on line 102, this statement is reached)
  * 		F: Test 10 (position is incremented to 5 after the while loop is entered)
  * 
- * For further clarity: there are 3 else statements that need to be reached so their branch is followed.
+ * For further clarity: there are 3 else statements that need to be reached to ensure their branch is followed.
  * 
  * (1) Line 54)
  * 		Reached: Test 4 (year is 2019, so all previous if statements are evaluated false)
@@ -97,7 +97,7 @@ import dates.Dates.Day;
  * (3) Line 105)
  * 		Reached: Test 10 (position is calculated as -2 so the previous if statement is evaluated false)
  * 
- * CONDITION/COMBINATORIAL COVERAGE JUSTIFICATION
+ * CONDITION/COMBINATORIAL COVERAGE EXPLANATION
  * 
  * There are 3 compound expressions where the different combinations of T and F for the clauses need to be exercised.
  * 
@@ -110,32 +110,17 @@ import dates.Dates.Day;
  * (2) Line 65) isLeapYear && month == 2
  * 		TT: Test 6 (year is 2020 so 'isLeapYear' is set true on line 53 and month is 2)
  * 		TF: Test 7 (year is 2020 so 'isLeapYear' is set true on line 53 and month is 3)
- * 		FT: This combination is not exercised as, due to short-circuit boolean evaluation, it is the same as FF
+ * 		FT: This combination does not need to be exercised because, due to short-circuit boolean evaluation, it is the same as FF
  * 		FF: Test 9 (year is 2019 so 'isLeapYear' is set false on line 47 and never changed and month is 3)
  * 
  * (3) Line 96) isLeapYear && month <= 2
  * 		TT: Test 8 (year is 2020 so 'isLeapYear' is set true on line 53 and month is 2)
  * 		TF: Test 10 (year is 2020 so 'isLeapYear' is set true on line 53 and month is 10)
- * 		FT: This combination is not exercised as, due to short-circuit boolean evaluation, it is the same as FF
+ * 		FT: This combination does not need to be exercised because, due to short-circuit boolean evaluation, it is the same as FF
  * 		FF: Test 9 (year is 2019 so 'isLeapYear' is set false on line 47 and never changed and month is 3)
  *
  */
 public class BranchTests {
-	
-	//===============================================================================
-    //  			    Test that exercises object construction
-    //===============================================================================
-	/**
-	 * Test 0
-	 * Creates 2 date objects and verifies they are not considered the same
-	 * New evaluations: reaches line 3
-	 */
-	@Test
-	public void testDatesObjectConstruction() {
-		Dates dates1 = new Dates();
-		Dates dates2 = new Dates();
-		assertNotEquals(dates1, dates2);
-	}
 	
 	//===============================================================================
     //  			Tests that exercise leap-year and validity checks
@@ -149,11 +134,11 @@ public class BranchTests {
 	@Test
 	public void yearDiv400_yearSmallInvalid() {
 		try {
-			dayOfWeek(400, 10, 10);
+			dayOfWeek(400, 10, 5);
 			fail("IllegalArgumentException should have been thrown");
 		}
 		catch(IllegalArgumentException e) {
-			assertEquals(e.getMessage(), "Invalid date: year=400, month=10, day=10");
+			assertEquals(e.getMessage(), "Invalid date: year=400, month=10, day=5");
 		}
 	}
 	
